@@ -1,0 +1,34 @@
+format_version: 10
+pipelines:
+  pac-test:
+    group: test
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git-376b685:
+        git: https://github.com/srivasjay/py.git
+        shallow_clone: false
+        auto_update: false
+        branch: main
+    stages:
+    - Scripts:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          Ant:
+            timeout: 0
+            environment_variables:
+              test: aws
+            tasks:
+            - exec:
+                arguments:
+                - $test
+                command: echo
+                run_if: passed
+    parameters:
+      test: pwc
