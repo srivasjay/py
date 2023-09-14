@@ -8,16 +8,16 @@ pipelines:
     materials:
       parent:
         ignore_for_scheduling: false
-        pipeline: Parent1
+        pipeline: Parent
         stage: Test
-      # parent1:
-      #   ignore_for_scheduling: false
-      #   pipeline: Child
-      #   stage: Test
-      # parent2:
-      #   ignore_for_scheduling: false
-      #   pipeline: Child2
-      #   stage: Test
+      parent1:
+        ignore_for_scheduling: false
+        pipeline: Child
+        stage: job2
+      parent2:
+        ignore_for_scheduling: false
+        pipeline: Child2
+        stage: script
     stages:
     - multi-test:
         fetch_materials: true
