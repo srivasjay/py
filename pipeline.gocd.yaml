@@ -1,18 +1,25 @@
 format_version: 10
 pipelines:
-  pac-test:
+  Child3:
     group: test
     label_template: ${COUNT}
     lock_behavior: none
     display_order: -1
     materials:
-      git-376b685:
-        git: https://github.com/srivasjay/py.git
-        shallow_clone: false
-        auto_update: false
-        branch: main
+      parent:
+        ignore_for_scheduling: false
+        pipeline: parent
+        stage: Test
+      parent1:
+        ignore_for_scheduling: false
+        pipeline: Child
+        stage: Test
+      parent2:
+        ignore_for_scheduling: false
+        pipeline: Child2
+        stage: Test
     stages:
-    - Scripts:
+    - multi-test:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
@@ -20,15 +27,5 @@ pipelines:
           type: success
           allow_only_on_success: false
         jobs:
-          Ant:
+          Scripts:
             timeout: 0
-            environment_variables:
-              test: aws
-            tasks:
-            - exec:
-                arguments:
-                - $test
-                command: echo
-                run_if: passed
-    parameters:
-      test: pwc
