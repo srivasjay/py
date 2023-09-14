@@ -6,18 +6,18 @@ pipelines:
     lock_behavior: none
     display_order: -1
     materials:
-     - parent:
+      parent:
         ignore_for_scheduling: false
-        pipeline: Parent
+        pipeline: parent
         stage: Test
-     - parent1:
-        ignore_for_scheduling: false
-        pipeline: Child
-        stage: job2
-     - parent2:
-        ignore_for_scheduling: false
-        pipeline: Child2
-        stage: script
+     # - parent1:
+     #    ignore_for_scheduling: false
+     #    pipeline: Child
+     #    stage: job2
+     # - parent2:
+     #    ignore_for_scheduling: false
+     #    pipeline: Child2
+     #    stage: script
     stages:
     - multi-test:
         fetch_materials: true
