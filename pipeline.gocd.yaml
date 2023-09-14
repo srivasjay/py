@@ -6,18 +6,12 @@ pipelines:
     lock_behavior: none
     display_order: -1
     materials:
-      upstream:
-        type: dependency
+      upstream-one:
         pipeline: parent
         stage: Test
-     # - parent1:
-     #    ignore_for_scheduling: false
-     #    pipeline: Child
-     #    stage: job2
-     # - parent2:
-     #    ignore_for_scheduling: false
-     #    pipeline: Child2
-     #    stage: script
+      upstream-two:
+        pipeline: Child
+        stage: job2
     stages:
     - multi-test:
         fetch_materials: true
