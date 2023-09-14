@@ -10,14 +10,14 @@ pipelines:
         ignore_for_scheduling: false
         pipeline: parent
         stage: Test
-      # parent1:
-      #   ignore_for_scheduling: false
-      #   pipeline: Child
-      #   stage: Test
-      # parent2:
-      #   ignore_for_scheduling: false
-      #   pipeline: Child2
-      #   stage: Test
+      parent1:
+        ignore_for_scheduling: false
+        pipeline: Child
+        stage: Test
+      parent2:
+        ignore_for_scheduling: false
+        pipeline: Child2
+        stage: Test
     stages:
     - multi-test:
         fetch_materials: true
