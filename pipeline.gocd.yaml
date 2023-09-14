@@ -6,8 +6,8 @@ pipelines:
     lock_behavior: none
     display_order: -1
     materials:
-      parent:
-        ignore_for_scheduling: false
+      upstream:
+        type: dependency
         pipeline: parent
         stage: Test
      # - parent1:
