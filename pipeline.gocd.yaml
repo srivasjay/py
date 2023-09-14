@@ -8,7 +8,7 @@ pipelines:
     materials:
       parent:
         ignore_for_scheduling: false
-        pipeline: parent
+        pipeline: Parent1
         stage: Test
       parent1:
         ignore_for_scheduling: false
