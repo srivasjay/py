@@ -26,7 +26,6 @@ pipelines:
         approval:
           type: success
           allow_only_on_success: false
-                  allow_only_on_success: false
         jobs:
           Script:
             timeout: 0
