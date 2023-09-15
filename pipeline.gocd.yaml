@@ -23,6 +23,9 @@ pipelines:
         jobs:
           Script:
             timeout: 0
+            environment:
+              type: "environment"  # Set the type to "environment"
+              name: "Prod"  # Name of the first environment
             tasks:
             - exec:
                 arguments:
